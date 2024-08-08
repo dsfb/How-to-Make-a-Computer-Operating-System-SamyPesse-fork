@@ -17,6 +17,12 @@ Vagrant needs Virtualbox to work, Download and install for your system at https:
 
 ### Start and test your development environment
 
+Go to the "src" subdirectory of this repo, inside your shell:
+
+```
+cd src
+```
+
 Once Vagrant and Virtualbox are installed, you need to download the ubuntu lucid32 image for Vagrant:
 
 ```
@@ -53,10 +59,30 @@ cd /vagrant
 
 The file [**Makefile**](https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/Makefile) defines some basics rules for building the kernel, the user libc and some userland programs.
 
+To build our operating system, you need the package for Nasm. Install it with:
+
+```
+sudo dpkg -i packages/nasm_2.10.09-1_i386.deb
+```
+
 Build:
 
 ```
 make all
+```
+
+To test our operating system, you need other extra packages. Install them with:
+
+```
+sudo cp packages/sources.list /etc/apt/sources.list
+```
+
+```
+sudo apt-get update
+```
+
+```
+sudo apt-get install qemu grub -y
 ```
 
 Test our operating system with qemu:
@@ -68,3 +94,18 @@ make run
 The documentation for qemu is available at [QEMU Emulator Documentation](http://wiki.qemu.org/download/qemu-doc.html).
 
 You can exit the emulator using: Ctrl-a.
+
+To halt your box, you can type:
+
+```
+exit
+```
+
+To close the ssh connection, and:
+
+```
+vagrant halt
+```
+
+To shut down the virtual machine.
+
