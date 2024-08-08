@@ -29,7 +29,11 @@ Start your box using:
 
 ```
 vagrant init mrgcastle/ubuntu-lucid32
+```
 
+and
+
+```
 vagrant up
 ```
 
