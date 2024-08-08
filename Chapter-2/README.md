@@ -20,7 +20,7 @@ Vagrant needs Virtualbox to work, Download and install for your system at https:
 Once Vagrant and Virtualbox are installed, you need to download the ubuntu lucid32 image for Vagrant:
 
 ```
-vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
+vagrant box add mrgcastle/ubuntu-lucid32
 ```
 
 Once the lucid32 image is ready, we need to define our development environment using a *Vagrantfile*, [create a file named *Vagrantfile*](https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System/blob/master/src/Vagrantfile). This file defines what prerequisites our environment needs: nasm, make, build-essential, grub and qemu.
@@ -28,6 +28,8 @@ Once the lucid32 image is ready, we need to define our development environment u
 Start your box using:
 
 ```
+vagrant init mrgcastle/ubuntu-lucid32
+
 vagrant up
 ```
 
